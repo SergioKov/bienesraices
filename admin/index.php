@@ -1,11 +1,11 @@
 <?php 
 
     require '../includes/funciones.php';
-    $auth = estaAutenticado();
+    //$auth = estaAutenticado();
 
-    if(!$auth) {
-        header('Location: /');
-    }
+    //if(!$auth) {
+    //    header('Location: /');
+    //}
 
     // Importar la conexión
     require '../includes/config/database.php';
@@ -52,7 +52,10 @@
 
     // Incluye un template
 
-    incluirTemplate('header');
+    $from_admin = true;
+    $niveles = 1;
+    incluirTemplateAdmin('header', false, $from_admin, $niveles);
+
 ?>
 
     <main class="contenedor seccion">
@@ -65,7 +68,7 @@
             <p class="alerta exito">Anuncio Eliminado Correctamente</p>
         <?php endif; ?>
 
-        <a href="/admin/propiedades/crear.php" class="boton boton-verde">Nueva Propiedad</a>
+        <a href="/bienesraices/admin/propiedades/crear.php" class="boton boton-verde">Nueva Propiedad</a>
 
 
         <table class="propiedades">
@@ -84,7 +87,7 @@
                 <tr>
                     <td><?php echo $propiedad['id']; ?></td>
                     <td><?php echo $propiedad['titulo']; ?></td>
-                    <td> <img src="/imagenes/<?php echo $propiedad['imagen']; ?>" class="imagen-tabla"> </td>
+                    <td> <img src="/bienesraices/imagenes/<?php echo $propiedad['imagen']; ?>" class="imagen-tabla"> </td>
                     <td>$ <?php echo $propiedad['precio']; ?></td>
                     <td>
                         <form method="POST" class="w-100">
@@ -94,7 +97,7 @@
                             <input type="submit" class="boton-rojo-block" value="Eliminar">
                         </form>
                         
-                        <a href="admin/propiedades/actualizar.php?id=<?php echo $propiedad['id']; ?>" class="boton-amarillo-block">Actualizar</a>
+                        <a href="propiedades/actualizar.php?id=<?php echo $propiedad['id']; ?>" class="boton-amarillo-block">Actualizar</a>
                     </td>
                 </tr>
                 <?php endwhile; ?>

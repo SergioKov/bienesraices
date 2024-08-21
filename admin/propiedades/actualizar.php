@@ -1,18 +1,18 @@
 <?php 
 
     require '../../includes/funciones.php';
-    $auth = estaAutenticado();
+    //$auth = estaAutenticado();
 
-    if(!$auth) {
-        header('Location: /');
-    }
+    //if(!$auth) {
+    //    header('Location: /');
+    //}
 
     // Validar la URL por ID válido
     $id = $_GET['id'];
     $id = filter_var($id, FILTER_VALIDATE_INT);
 
     if(!$id) {
-        header('Location: /admin');
+        header('Location: /bienesraices/admin');
     }
 
     // Base de datos
@@ -141,7 +141,7 @@
 
             if($resultado) {
                 // Redireccionar al usuario.
-                header('Location: /admin?resultado=2');
+                header('Location: /bienesraices/admin?resultado=2');
             }
         }
 
@@ -151,14 +151,15 @@
     }
 
 
-
-    incluirTemplate('header');
+    $from_admin = true;
+    $niveles = 2;
+    incluirTemplateAdmin('header', false, $from_admin, $niveles);
 ?>
 
     <main class="contenedor seccion">
         <h1>Actualizar Propiedad</h1>
 
-        <a href="/admin" class="boton boton-verde">Volver</a>
+        <a href="/bienesraices/admin" class="boton boton-verde">Volver</a>
 
         <?php foreach($errores as $error): ?>
         <div class="alerta error">
@@ -179,7 +180,7 @@
                 <label for="imagen">Imagen:</label>
                 <input type="file" id="imagen" accept="image/jpeg, image/png" name="imagen">
 
-                <img src="/imagenes/<?php echo $imagenPropiedad; ?>" class="imagen-small">
+                <img src="../../imagenes/<?php echo $imagenPropiedad; ?>" class="imagen-small">
 
                 <label for="descripcion">Descripción:</label>
                 <textarea id="descripcion" name="descripcion"><?php echo $descripcion; ?></textarea>

@@ -12,7 +12,6 @@
     $db = conectarDB();
 
     //die(__DIR__);
-
     //var_dump(TEMPLATES_URL);
 
     // Consultar para obtener los vendedores
@@ -37,9 +36,9 @@
         // var_dump($_POST);
         // echo "</pre>";
 
-        echo "<pre>";
-        var_dump($_FILES);
-        echo "</pre>";
+        //echo "<pre>";
+        //var_dump($_FILES);
+        //echo "</pre>";
 
 
         $titulo = mysqli_real_escape_string( $db,  $_POST['titulo'] );
@@ -132,13 +131,14 @@
 
             if($resultado) {
                 // Redireccionar al usuario.
-                header('Location: /admin?resultado=1');
+                header('Location: /bienesraices/admin?resultado=1');
             }
         }
     }
     
     $from_admin = true;
-    incluirTemplateAdmin('header', false, $from_admin);
+    $niveles = 2;
+    incluirTemplateAdmin('header', false, $from_admin, $niveles);
 ?>
 
     <main class="contenedor seccion">
@@ -146,7 +146,7 @@
 
         
 
-        <a href="/admin" class="boton boton-verde">Volver</a>
+        <a href="/bienesraices/admin/" class="boton boton-verde">Volver</a>
 
         <?php foreach($errores as $error): ?>
         <div class="alerta error">
