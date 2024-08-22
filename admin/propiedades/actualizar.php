@@ -1,11 +1,11 @@
 <?php 
 
     require '../../includes/funciones.php';
-    //$auth = estaAutenticado();
+    $auth = estaAutenticado();
 
-    //if(!$auth) {
-    //    header('Location: /');
-    //}
+    if(!$auth) {
+        header('Location: /');
+    }
 
     // Validar la URL por ID válido
     $id = $_GET['id'];
@@ -121,14 +121,14 @@
             /** SUBIDA DE ARCHIVOS */
 
             if($imagen['name']) {
+                
                 // Eliminar la imagen previa
-
                 unlink($carpetaImagenes . $propiedad['imagen']);
 
-                // // Generar un nombre único
+                //Generar un nombre único
                 $nombreImagen = md5( uniqid( rand(), true ) ) . ".jpg";
 
-                // // Subir la imagen
+                //Subir la imagen
                 move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen );
             } else {
                 $nombreImagen = $propiedad['imagen'];
@@ -144,9 +144,6 @@
                 header('Location: /bienesraices/admin?resultado=2');
             }
         }
-
-   
-
 
     }
 

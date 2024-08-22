@@ -29,11 +29,33 @@ table.propiedades {
         }
     }
 
+    tr td{
+        border-bottom: 1px solid $verde; 
+        padding: 2rem;
+    }
+
     .imagen-tabla {
-        width: 10rem;
+        width: auto;
+        height: 10rem;
+    }
+
+    .boton-amarillo-block{
+        margin-top: 0.5rem;
     }
 }
 
 .imagen-small {
     width: 20rem;
+}
+.boton-rojo-block{
+    display: block;
+    width: 100%;
+    background-color: $rojo;
+    padding: 1.5rem 3rem;
+    color: $blanco;
+    border: none;
+
+    &:hover{
+        background-color: darken($rojo, 5);
+    }
 }

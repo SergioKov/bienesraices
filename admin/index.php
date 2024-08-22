@@ -1,11 +1,11 @@
 <?php 
 
     require '../includes/funciones.php';
-    //$auth = estaAutenticado();
+    $auth = estaAutenticado();
 
-    //if(!$auth) {
-    //    header('Location: /');
-    //}
+    if(!$auth) {
+        header('Location: /');
+    }
 
     // Importar la conexión
     require '../includes/config/database.php';
@@ -43,7 +43,7 @@
             $resultado = mysqli_query($db, $query);
 
             if($resultado) {
-                header('location: /admin?resultado=3');
+                header('location: /bienesraices/admin?resultado=3');
             }
         }
 
@@ -91,9 +91,7 @@
                     <td>$ <?php echo $propiedad['precio']; ?></td>
                     <td>
                         <form method="POST" class="w-100">
-
                             <input type="hidden" name="id" value="<?php echo $propiedad['id']; ?>">
-
                             <input type="submit" class="boton-rojo-block" value="Eliminar">
                         </form>
                         

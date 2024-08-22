@@ -54,6 +54,8 @@
                         <a href="/bienesraices/contacto.php">Contacto</a>
                         <?php if($auth): ?>
                             <a href="cerrar-sesion.php">Cerrar Sesión</a>
+                        <?php else : ?>
+                            <a href="login.php">Login</a>                        
                         <?php endif; ?>
                     </nav>
                 </div>
