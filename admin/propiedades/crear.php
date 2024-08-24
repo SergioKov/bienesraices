@@ -131,14 +131,12 @@
 
             if($resultado) {
                 // Redireccionar al usuario.
-                header('Location: /bienesraices/admin?resultado=1');
+                header('Location: /admin?resultado=1');
             }
         }
     }
     
-    $from_admin = true;
-    $niveles = 2;
-    incluirTemplateAdmin('header', false, $from_admin, $niveles);
+    incluirTemplate('header', false);
 ?>
 
     <main class="contenedor seccion">
@@ -146,7 +144,7 @@
 
         
 
-        <a href="/bienesraices/admin/" class="boton boton-verde">Volver</a>
+        <a href="/admin/" class="boton boton-verde">Volver</a>
 
         <?php foreach($errores as $error): ?>
         <div class="alerta error">
@@ -154,7 +152,7 @@
         </div>
         <?php endforeach; ?>
 
-        <form class="formulario" method="POST" action="/bienesraices/admin/propiedades/crear.php" enctype="multipart/form-data">
+        <form class="formulario" method="POST" action="/admin/propiedades/crear.php" enctype="multipart/form-data">
             <fieldset>
                 <legend>Información General</legend>
 

@@ -4,7 +4,7 @@
     $id = filter_var($id, FILTER_VALIDATE_INT);
 
     if(!$id) {
-        header('Location: /bienesraices/');
+        header('Location: /');
     }
 
     //echo __DIR__;
@@ -22,7 +22,7 @@
     $resultado = mysqli_query($db, $query);
 
     if(!$resultado->num_rows) {
-        header('Location: /bienesraices/');
+        header('Location: /');
     } 
     
     $propiedad = mysqli_fetch_assoc($resultado);
@@ -36,7 +36,7 @@
         <h1><?php echo $propiedad['titulo']; ?></h1>
 
      
-        <img loading="lazy" src="/bienesraices/imagenes/<?php echo $propiedad['imagen']; ?>" alt="imagen de la propiedad">
+        <img loading="lazy" src="imagenes/<?php echo $propiedad['imagen']; ?>" alt="imagen de la propiedad">
 
         <div class="resumen-propiedad">
             <p class="precio">$<?php echo $propiedad['precio']; ?></p>

@@ -17,7 +17,7 @@
         <?php while($propiedad = mysqli_fetch_assoc($resultado)): ?>
             <div class="anuncio">
 
-                <img loading="lazy" src="/bienesraices/imagenes/<?php echo $propiedad['imagen']; ?>" alt="anuncio">
+                <img loading="lazy" src="/imagenes/<?php echo $propiedad['imagen']; ?>" alt="anuncio">
 
                 <div class="contenido-anuncio">
                     <h3><?php echo $propiedad['titulo']; ?></h3>

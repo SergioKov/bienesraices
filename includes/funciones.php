@@ -2,16 +2,7 @@
 
 require 'app.php';
 
-function incluirTemplate( string  $nombre, bool $inicio = false, $from_admin = false ) {
-    include TEMPLATES_URL . "/{$nombre}.php"; 
-}
-
-function incluirTemplateAdmin( string  $nombre, bool $inicio = false, $from_admin = false, $niveles = 0 ) {
-    //echo $nombre;
-    //echo"<br>";
-    //echo $from_admin;
-    //echo"<br>";
-    
+function incluirTemplate( string  $nombre, bool $inicio = false ) {
     include TEMPLATES_URL . "/{$nombre}.php"; 
 }
 

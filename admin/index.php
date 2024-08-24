@@ -43,7 +43,7 @@
             $resultado = mysqli_query($db, $query);
 
             if($resultado) {
-                header('location: /bienesraices/admin?resultado=3');
+                header('location: /admin?resultado=3');
             }
         }
 
@@ -51,10 +51,7 @@
     }
 
     // Incluye un template
-
-    $from_admin = true;
-    $niveles = 1;
-    incluirTemplateAdmin('header', false, $from_admin, $niveles);
+    incluirTemplate('header', false);
 
 ?>
 
@@ -68,7 +65,7 @@
             <p class="alerta exito">Anuncio Eliminado Correctamente</p>
         <?php endif; ?>
 
-        <a href="/bienesraices/admin/propiedades/crear.php" class="boton boton-verde">Nueva Propiedad</a>
+        <a href="/admin/propiedades/crear.php" class="boton boton-verde">Nueva Propiedad</a>
 
 
         <table class="propiedades">
@@ -87,7 +84,7 @@
                 <tr>
                     <td><?php echo $propiedad['id']; ?></td>
                     <td><?php echo $propiedad['titulo']; ?></td>
-                    <td> <img src="/bienesraices/imagenes/<?php echo $propiedad['imagen']; ?>" class="imagen-tabla"> </td>
+                    <td> <img src="/imagenes/<?php echo $propiedad['imagen']; ?>" class="imagen-tabla"> </td>
                     <td>$ <?php echo $propiedad['precio']; ?></td>
                     <td>
                         <form method="POST" class="w-100">
@@ -95,7 +92,7 @@
                             <input type="submit" class="boton-rojo-block" value="Eliminar">
                         </form>
                         
-                        <a href="propiedades/actualizar.php?id=<?php echo $propiedad['id']; ?>" class="boton-amarillo-block">Actualizar</a>
+                        <a href="/admin/propiedades/actualizar.php?id=<?php echo $propiedad['id']; ?>" class="boton-amarillo-block">Actualizar</a>
                     </td>
                 </tr>
                 <?php endwhile; ?>

@@ -12,7 +12,7 @@
     $id = filter_var($id, FILTER_VALIDATE_INT);
 
     if(!$id) {
-        header('Location: /bienesraices/admin');
+        header('Location: /admin');
     }
 
     // Base de datos
@@ -141,22 +141,19 @@
 
             if($resultado) {
                 // Redireccionar al usuario.
-                header('Location: /bienesraices/admin?resultado=2');
+                header('Location: /admin?resultado=2');
             }
         }
 
     }
 
-
-    $from_admin = true;
-    $niveles = 2;
-    incluirTemplateAdmin('header', false, $from_admin, $niveles);
+    incluirTemplate('header', false);
 ?>
 
     <main class="contenedor seccion">
         <h1>Actualizar Propiedad</h1>
 
-        <a href="/bienesraices/admin" class="boton boton-verde">Volver</a>
+        <a href="/admin" class="boton boton-verde">Volver</a>
 
         <?php foreach($errores as $error): ?>
         <div class="alerta error">
