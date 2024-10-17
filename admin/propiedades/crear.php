@@ -39,6 +39,7 @@
          
          $propiedad->guardar();
          debug($propiedad);
+
          
          
         //debug($_POST);

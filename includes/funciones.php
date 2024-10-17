@@ -18,8 +18,28 @@ function estaAutenticado() {
 }
 
 function debug($variable){
-    echo"<h1 style='font-family: consolas;'>Variable: $" . getVariableName($variable) . "</h1>";
-    echo"<pre style='padding:5px; background:#f6f6f6;border:1px solid grey;border-radius:5px;'>";
+    
+    echo"<style>";
+    echo "
+        .debug_h3 {
+            font-family: consolas;
+            background: #060606;
+            margin-bottom: -13px;
+            color: #d8d8d8;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+        }
+        .debug_pre {
+            padding: 10px;
+            background: #f6f6f6;
+            border: 1px solid grey;
+            border-radius: 0 0 5px 5px;
+        }
+    ";
+    echo"</style>";
+
+    echo"<h3 class='debug_h3'>$" . getVariableName($variable) . ":</h3>";
+    echo"<pre class='debug_pre'>";
     var_dump($variable);
     echo"</pre>";
     exit;
