@@ -4,20 +4,21 @@
 
     use App\Propiedad;
 
-    $propiedad = new Propiedad();
-
+    // $propiedad = new Propiedad();//para comprobar si se conecta bien
     //debug($GLOBALS);
-    debug($propiedad);
+    // debug($propiedad);
+    
 
 
 
 
 
-    $auth = estaAutenticado();
 
-    if(!$auth) {
-        header('Location: /');
-    }
+    estaAutenticado();
+
+    //if(!estaAutenticado()) {
+    //    header('Location: /');
+    //}
 
     $db = conectarDB();
 
