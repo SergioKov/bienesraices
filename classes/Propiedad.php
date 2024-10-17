@@ -27,6 +27,10 @@ class Propiedad {
         $this->creado = date('Y/m/d');
         $this->vendedorId = $args['vendedorId'] ?? '';
     }
+
+    public function guardar(){
+        echo "Guardando en la base de datos...";
+    }
 }
 
 /*

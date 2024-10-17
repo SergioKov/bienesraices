@@ -4,16 +4,6 @@
 
     use App\Propiedad;
 
-    // $propiedad = new Propiedad();//para comprobar si se conecta bien
-    //debug($GLOBALS);
-    // debug($propiedad);
-    
-
-
-
-
-
-
     estaAutenticado();
 
     //if(!estaAutenticado()) {
@@ -43,14 +33,17 @@
     // Ejecutar el código después de que el usuario envia el formulario
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        // echo "<pre>";
-        // var_dump($_POST);
-        // echo "</pre>";
+        
+         $propiedad = new Propiedad($_POST);
 
-        //echo "<pre>";
-        //var_dump($_FILES);
-        //echo "</pre>";
-
+         
+         $propiedad->guardar();
+         debug($propiedad);
+         
+         
+        //debug($_POST);
+        //debug($_FILES);
+        
 
         $titulo = mysqli_real_escape_string( $db,  $_POST['titulo'] );
         $precio = mysqli_real_escape_string( $db,  $_POST['precio'] );
@@ -58,7 +51,7 @@
         $habitaciones = mysqli_real_escape_string( $db,  $_POST['habitaciones'] );
         $wc = mysqli_real_escape_string( $db,  $_POST['wc'] );
         $estacionamiento = mysqli_real_escape_string( $db,  $_POST['estacionamiento'] );
-        $vendedorId = mysqli_real_escape_string( $db,  $_POST['vendedor'] );
+        $vendedorId = mysqli_real_escape_string( $db,  $_POST['vendedorId'] );
         $creado = date('Y/m/d');
 
         // Asignar files hacia una variable
@@ -205,7 +198,7 @@
             <fieldset>
                 <legend>Vendedor</legend>
 
-                <select name="vendedor">
+                <select name="vendedorId">
                     <option value="">-- Seleccione --</option>
                     <?php while($vendedor =  mysqli_fetch_assoc($resultado) ) : ?>
                         <option  <?php echo $vendedorId === $vendedor['id'] ? 'selected' : ''; ?>   value="<?php echo $vendedor['id']; ?>"> <?php echo $vendedor['nombre'] . " " . $vendedor['apellido']; ?> </option>
