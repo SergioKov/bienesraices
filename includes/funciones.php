@@ -17,3 +17,20 @@ function estaAutenticado() : bool {
     }
     return false;
 }
+
+function debug($variable){
+    echo"<h1 style='font-family: consolas;'>Variable: $" . getVariableName($variable) . "</h1>";
+    echo"<pre style='padding:5px; background:#f6f6f6;border:1px solid grey;border-radius:5px;'>";
+    var_dump($variable);
+    echo"</pre>";
+    exit;
+}
+
+function getVariableName($var) {
+    foreach ($GLOBALS as $key => $value) {
+        if ($value === $var) {
+            return $key;
+        }
+    }
+    return null;
+}

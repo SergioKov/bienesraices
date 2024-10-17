@@ -1,14 +1,24 @@
 <?php 
 
-    require '../../includes/funciones.php';
+    require '../../includes/app.php';
+
+    use App\Propiedad;
+
+    $propiedad = new Propiedad();
+
+    //debug($GLOBALS);
+    debug($propiedad);
+
+
+
+
+
     $auth = estaAutenticado();
 
     if(!$auth) {
         header('Location: /');
     }
 
-    // Base de datos
-    require '../../includes/config/database.php';
     $db = conectarDB();
 
     //die(__DIR__);
