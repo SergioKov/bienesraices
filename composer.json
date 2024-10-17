@@ -1,0 +1,17 @@
+{
+    "name": "kovalchuk/bienesraices",
+    "description": "Creando un proyecto con POO",
+    "type": "project",
+    "authors": [
+        {
+            "name": "sergio",
+            "email": "serhiy_kovalchuk@race.es"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "./classes"
+        }
+    }
+}
